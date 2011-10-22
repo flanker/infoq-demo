@@ -23,13 +23,10 @@ task :package_deb do
   Dir.chdir "#{PROJECT_ROOT}/tmp" do
     # system <<-EOF
     system <<-EOF
-whoami
-    EOF
-    puts <<-EOF
 fpm -s dir \
   -t deb \
   -C root \
-  -a noarch \
+  -a all \
   -n #{name} \
   -v #{get_version} \
   -m "Feng Zhichao" \
