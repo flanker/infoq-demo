@@ -1,4 +1,4 @@
-PROJECT_ROOT = File.dirname(__FILE__)
+DEV_ROOT = File.dirname(__FILE__) + "/dev"
 name = "infoq"
 
 def get_version
@@ -7,7 +7,7 @@ end
 
 desc "clean up tmp files"
 task :clean do
-  rm_rf "#{PROJECT_ROOT}/tmp"
+  rm_rf "#{DEV_ROOT}/tmp"
 end
 
 desc "package"
@@ -15,12 +15,12 @@ task :package => [:clean, :package_deb]
 
 desc "package to deb"
 task :package_deb do
-  Dir.chdir PROJECT_ROOT do
+  Dir.chdir DEV_ROOT do
     package_dir = "tmp/root/opt/infoq"
     mkdir_p package_dir
     cp_r "app", package_dir
   end
-  Dir.chdir "#{PROJECT_ROOT}/tmp" do
+  Dir.chdir "#{DEV_ROOT}/tmp" do
     # system <<-EOF
     system <<-EOF
 fpm -s dir \
