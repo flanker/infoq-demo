@@ -12,9 +12,6 @@ function install_rvm {
 }
 
 function install_ruby {
-  rvm pkg install zlib && \
-  rvm pkg install libxml2 && \
-  rvm pkg install readline && \
   rvm install ruby-1.8.7 && \
   rvm use 1.8.7 && \
   rvm gemset create infoq && \
