@@ -1,0 +1,5 @@
+maintainer       "Feng Zhichao"
+maintainer_email "flankerfc@gmail.com"
+license          "All rights reserved"
+description      "Installs Jenkins CI" 
+version          "0.0.1"
