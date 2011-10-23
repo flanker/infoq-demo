@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<cruise xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="cruise-config.xsd" schemaVersion="41">
+  <pipelines group="defaultGroup">
+    <pipeline name="infoq-demo">
+      <materials>
+        <git url="git://github.com/flanker/infoq-demo.git" dest="infoq-demo" />
+      </materials>
+      <stage name="package">
+        <jobs>
+          <job name="defaultJob">
+            <tasks>
+              <exec command="echo" workingdir="infoq-demo">
+                <runif status="passed" />
+              </exec>
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
+  </pipelines>
+  <agents>
+  </agents>
+</cruise>
+
