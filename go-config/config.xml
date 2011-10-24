@@ -9,10 +9,13 @@
         <jobs>
           <job name="defaultJob">
             <tasks>
-              <exec command="echo" workingdir="infoq-demo">
+              <exec command="bash" args="build.sh package" workingdir="infoq-demo">
                 <runif status="passed" />
               </exec>
             </tasks>
+            <artifacts>
+              <artifact src="infoq-demo/dev/tmp/**" />
+            </artifacts>
           </job>
         </jobs>
       </stage>
