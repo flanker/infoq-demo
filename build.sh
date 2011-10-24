@@ -40,10 +40,16 @@ function bundle_install {
 }
 
 function main {
+  echo "check env" && \
   check_env && \
+  echo "load rvm" && \
   load_rvm && \
+  echo "use ruby & gem" && \
   use_ruby && \
-  bundle_install
+  echo "bundle install" && \
+  bundle_install && \
+  echo "rake $1" && \
+  rake $1
 }
 
 main $@
