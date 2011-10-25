@@ -14,7 +14,7 @@
               </exec>
             </tasks>
             <artifacts>
-              <artifact src="infoq-demo/dev/tmp/**" />
+              <artifact src="infoq-demo/dev/tmp/package/**.deb" dest="package" />
             </artifacts>
           </job>
         </jobs>

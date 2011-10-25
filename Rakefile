@@ -16,12 +16,11 @@ task :package => [:clean, :package_deb]
 desc "package to deb"
 task :package_deb do
   Dir.chdir DEV_ROOT do
-    package_dir = "tmp/root/opt/infoq"
+    package_dir = "tmp/package/root/opt/infoq"
     mkdir_p package_dir
     cp_r "app", package_dir
   end
-  Dir.chdir "#{DEV_ROOT}/tmp" do
-    # system <<-EOF
+  Dir.chdir "#{DEV_ROOT}/tmp/package" do
     system <<-EOF
 fpm -s dir \
   -t deb \
