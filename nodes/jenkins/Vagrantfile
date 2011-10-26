@@ -1,0 +1,18 @@
+Vagrant::Config.run do |config|
+
+  config.vm.box = "ubuntu-1104-server-amd64"
+  #
+  #config.vm.boot_mode = :gui
+
+  config.vm.network("33.33.33.11")
+
+  config.vm.forward_port "http", 8080, 18080
+  config.vm.forward_port "ssh", 22, 11022
+
+  config.vm.provision :chef_solo do |chef|
+    chef.cookbooks_path = "../../chef-repo/cookbooks"
+    chef.roles_path = "../../chef-repo/roles"
+    chef.add_role "jenkins"
+  end
+
+end
