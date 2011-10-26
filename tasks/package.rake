@@ -1,4 +1,4 @@
-DEV_ROOT = File.dirname(__FILE__) + "/../dev"
+DEV_ROOT = "#{PROJECT_ROOT}/dev"
 name = "infoq"
 
 def get_version

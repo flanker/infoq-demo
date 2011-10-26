@@ -1,5 +1,3 @@
-PROJECT_ROOT = File.dirname(__FILE__) + "/.."
-
 namespace :vagrant do
   [:up, :halt, :suspend, :provision].each do |command|
     namespace command do
