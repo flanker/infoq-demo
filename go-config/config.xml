@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <cruise xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="cruise-config.xsd" schemaVersion="41">
-  <pipelines group="defaultGroup">
+  <pipelines group="infoq-demo">
     <pipeline name="infoq-demo">
       <materials>
         <git url="git://github.com/flanker/infoq-demo.git" dest="infoq-demo" />
@@ -16,6 +16,39 @@
             <artifacts>
               <artifact src="infoq-demo/dev/tmp/package/**.deb" dest="package" />
             </artifacts>
+          </job>
+        </jobs>
+      </stage>
+      <stage name="standalone">
+        <jobs>
+          <job name="defaultJob">
+            <tasks>
+              <exec command="echo" workingdir="infoq-demo">
+                <runif status="passed" />
+              </exec>
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+      <stage name="staging">
+        <jobs>
+          <job name="defaultJob">
+            <tasks>
+              <exec command="echo" workingdir="infoq-demo">
+                <runif status="passed" />
+              </exec>
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+      <stage name="publish">
+        <jobs>
+          <job name="defaultJob">
+            <tasks>
+              <exec command="echo" workingdir="infoq-demo">
+                <runif status="passed" />
+              </exec>
+            </tasks>
           </job>
         </jobs>
       </stage>
