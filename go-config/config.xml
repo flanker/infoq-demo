@@ -48,6 +48,9 @@
               <exec command="echo" workingdir="infoq-demo">
                 <runif status="passed" />
               </exec>
+              <fetchartifact pipeline="" stage="package" job="defaultJob" srcdir="package" dest="infoq-demo/tmp/">
+                <runif status="passed" />
+              </fetchartifact>
             </tasks>
           </job>
         </jobs>
