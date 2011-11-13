@@ -11,7 +11,7 @@ task :clean do
 end
 
 desc "package"
-task :package => [:clean, :package_deb]
+task :package => [:clean, :package_deb, :publish]
 
 desc "package to deb"
 task :package_deb do
@@ -34,4 +34,9 @@ fpm -s dir \
     EOF
 
   end
+end
+
+desc "publish artifacts to repository"
+task :publish do
+  
 end
