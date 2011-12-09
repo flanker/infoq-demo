@@ -2,3 +2,5 @@ dev/tmp
 ppt
 Gemfile.lock
 .vagrant
+dev/app/node_modules/
+tags
