@@ -1,1 +1,1 @@
-package "git"
+package "git-core"
