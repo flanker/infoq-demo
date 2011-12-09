@@ -7,6 +7,14 @@ Dir.glob('tasks/*.rake').each { |task| load task }
 
 namespace :app do
 
+  task :all do
+    app_pid = fork {
+      start_app
+    }
+    Rake::Task['app:cucumber'].execute
+    Process.kill "HUP", app_pid
+  end
+
   desc "start local app server"
   task :start do
     start_app
@@ -19,9 +27,8 @@ namespace :app do
   def start_app
     Dir.chdir "#{PROJECT_ROOT}/dev/app" do
       check_dependency
-      system "node app.js"
+      exec("node app.js")
     end
-    puts "app started."
   end
 
   def check_dependency
