@@ -7,7 +7,8 @@ Dir.glob('tasks/*.rake').each { |task| load task }
 
 namespace :app do
 
-  task :all do
+  desc "run acceptance test locally"
+  task :acceptance do
     app_pid = fork {
       start_app
     }
