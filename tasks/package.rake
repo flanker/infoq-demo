@@ -25,7 +25,7 @@ def copy_config
   Dir.chdir DEV_ROOT do
     package_dir = "tmp/package/root/etc/init.d"
     mkdir_p package_dir
-    cp_r "config/infoq", package_dir
+    cp "config/infoq", package_dir
   end
 end
 
