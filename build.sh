@@ -23,12 +23,26 @@ function install_bundler {
   echo "bundler installed"
 }
 
+function install_node {
+  sudo apt-get -y update && \
+  sudo apt-get -y install libssl-dev git-core pkg-config build-essential curl gcc g++ && \
+  mkdir /tmp/node-install && \
+  cd /tmp/node-install && \
+  wget http://nodejs.org/dist/v0.6.5/node-v0.6.5.tar.gz && \
+  tar -zxf node-v0.6.5.tar.gz && \
+  cd node-v0.6.5 && \
+  ./configure && make && sudo make install && \
+  curl http://npmjs.org/install.sh | sudo sh && \
+  echo 'nodejs and npm install completed'
+}
+
 function check_env {
   load_rvm
   hash rvm || install_rvm && \
   rvm list | grep 1.8.7 > /dev/null || install_ruby && \
   use_ruby && \
-  which bundle | grep 1.8.7 > /dev/null || install_bundler
+  which bundle | grep 1.8.7 > /dev/null || install_bundler && \
+  hash node || install_node
 }
 
 function use_ruby {
