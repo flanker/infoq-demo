@@ -27,13 +27,14 @@ function install_node {
   sudo apt-get -y update && \
   sudo apt-get -y install libssl-dev git-core pkg-config build-essential curl gcc g++ && \
   mkdir /tmp/node-install && \
-  cd /tmp/node-install && \
+  pushd /tmp/node-install && \
   wget http://nodejs.org/dist/v0.6.5/node-v0.6.5.tar.gz && \
   tar -zxf node-v0.6.5.tar.gz && \
   cd node-v0.6.5 && \
   ./configure && make && sudo make install && \
   curl http://npmjs.org/install.sh | sudo sh && \
-  echo 'nodejs and npm install completed'
+  echo 'nodejs and npm install completed' && \
+  popd
 }
 
 function check_env {
