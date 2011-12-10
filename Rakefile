@@ -8,7 +8,7 @@ Dir.glob('tasks/*.rake').each { |task| load task }
 namespace :app do
 
   desc "run acceptance test locally"
-  task :acceptance => check_dependency do
+  task :acceptance => :check_dependency do
     app_pid = fork {
       start_app
     }
@@ -24,7 +24,7 @@ namespace :app do
   end
 
   desc "start local app server"
-  task :start => check_dependency do
+  task :start => :check_dependency do
     start_app
   end
 
