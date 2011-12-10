@@ -8,8 +8,7 @@ Dir.glob('tasks/*.rake').each { |task| load task }
 namespace :app do
 
   desc "run acceptance test locally"
-  task :acceptance do
-    check_dependency
+  task :acceptance => check_dependency do
     app_pid = fork {
       start_app
     }
@@ -17,8 +16,15 @@ namespace :app do
     Process.kill "HUP", app_pid
   end
 
+  desc "install depandency"
+  task :check_dependency do
+    Dir.chdir "#{PROJECT_ROOT}/dev/app" do
+      check_dependency
+    end
+  end
+
   desc "start local app server"
-  task :start do
+  task :start => check_dependency do
     start_app
   end
 
@@ -28,7 +34,6 @@ namespace :app do
 
   def start_app
     Dir.chdir "#{PROJECT_ROOT}/dev/app" do
-      check_dependency
       exec("node app.js")
     end
   end

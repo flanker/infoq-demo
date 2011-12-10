@@ -11,7 +11,7 @@ task :clean do
 end
 
 desc "package"
-task :package => [:clean, :package_deb, :publish]
+task :package => [:clean, "app:check_dependency", :package_deb, :publish]
 
 def copy_content
   Dir.chdir DEV_ROOT do
