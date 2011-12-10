@@ -9,6 +9,7 @@ namespace :app do
 
   desc "run acceptance test locally"
   task :acceptance do
+    check_dependency
     app_pid = fork {
       start_app
     }
