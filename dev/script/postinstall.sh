@@ -1,2 +1,2 @@
 #!/bin/sh
-/etc/init.d/infoq restart
+sudo /etc/init.d/infoq restart
