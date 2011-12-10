@@ -1,0 +1,25 @@
+#!/bin/sh
+
+start() {
+  node /opt/infoq/app/app.js
+}
+
+stop() {
+  kill -9 `ps aux | grep node | grep infoq | awk '{print $2}'`
+}
+
+case "$1" in
+  start)
+        start
+        ;;
+  stop)
+        stop
+        ;;
+  restart)
+        stop
+        start
+        ;;
+  *)
+  echo "Usage: $0 {start|stop|restart}"
+  exit 1
+esac
