@@ -30,7 +30,7 @@ app.configure('production', function(){
 
 app.get('/', function(req, res){
   res.render('index', {
-    title: 'Express'
+    title: 'Agile Tour @Xi\'an 2011 Dec 10!'
   });
 });
 
